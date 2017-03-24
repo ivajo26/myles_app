@@ -9,30 +9,24 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+  ListView
 } from 'react-native';
 import { Button } from 'react-native-elements';
-import RNfirebase from 'react-native-firebase';
-
-const firebase = RNfirebase.initializeApp({
-  debug: __DEV__ ? '*' : false,
-  errorOnMissingPlayServices: false,
-  persistence: true,
-});
+import firebase from './firebase';
 
 
 export default class myles_app extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <Text style={styles.welcome}>Estamos renderizando las lista</Text>
+        <Button
+          small
+          raice
+          backgroundColor='teal'
+          title='Probando función'/>
 
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
       </View>
     );
   }
