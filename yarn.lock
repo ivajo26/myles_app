@@ -2977,10 +2977,6 @@ react-native-firebase@^1.0.0-alpha8:
     bows "^1.6.0"
     es6-symbol "^3.1.0"
 
-react-native-google-signin@^0.9.0:
-  version "0.9.0"
-  resolved "https://registry.yarnpkg.com/react-native-google-signin/-/react-native-google-signin-0.9.0.tgz#f25e9188519965d83ecc20ff0eb51da8f09faa86"
-
 react-native-router-flux@^3.38.0:
   version "3.38.0"
   resolved "https://registry.yarnpkg.com/react-native-router-flux/-/react-native-router-flux-3.38.0.tgz#f5f8ec2875b46f96f61006ff502d0d80268e6ce2"
