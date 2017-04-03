@@ -7,6 +7,8 @@ import {
   Button
 } from 'react-native';
 
+import firbase from '../../firebase';
+
 export default class LoginView extends Component {
   state = {
     credentials: {
@@ -20,6 +22,18 @@ export default class LoginView extends Component {
     data[key] = text;
     this.setState({ credentials: data });
   }
+
+  signIn = () => {
+    let credentials = this.state.credentials;
+    firebase.auth().signInWithEmailAndPassword(credentials.email, credentials.password)
+    .then((user) => {
+      console.warn('User successfully logged in', user)
+    })
+    .catch((err) => {
+      console.warn('User signin error', err);
+    });
+  }
+
   render () {
     return (
       <View style={styles.container}>
@@ -43,9 +57,12 @@ export default class LoginView extends Component {
           </View>
 
           <Button
+            disabled={this.state.credentials.email === '' || this.state.credentials.password === ''}
+            onPress={this.signIn}
             title="Iniciar"
             color="grey"
           />
+
         </View>
       </View>
     );
