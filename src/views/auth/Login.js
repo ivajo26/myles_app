@@ -7,6 +7,8 @@ import {
   Button
 } from 'react-native';
 
+import { Actions } from 'react-native-router-flux'
+
 import firbase from '../../firebase';
 
 export default class LoginView extends Component {
@@ -17,6 +19,11 @@ export default class LoginView extends Component {
     }
   }
 
+  componentDidMount(){
+    firebase.auth().getCurrentUser()
+    .then(user => Actions.main())
+    .catch(err => console.error('An error occurred'))
+  }
   onChange = (key, text) => {
     const data = this.state.credentials;
     data[key] = text;
@@ -27,6 +34,7 @@ export default class LoginView extends Component {
     let credentials = this.state.credentials;
     firebase.auth().signInWithEmailAndPassword(credentials.email, credentials.password)
     .then((user) => {
+      Actions.main()
       console.warn('User successfully logged in', user)
     })
     .catch((err) => {

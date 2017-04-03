@@ -12,16 +12,20 @@ import {
 import {
   Router,
   Scene
-} from 'react-native-router-flux';
+} from 'react-native-router-flux'
 
 import LoginView from './views/auth/Login';
+import HomeView from './views/Home';
 
 export default class myles_app extends Component {
   render() {
     return (
       <Router>
-        <Scene key="auth" hideNavBar>
+        <Scene key="auth" >
           <Scene key="login" component={LoginView} />
+        </Scene>
+        <Scene key="main" >
+          <Scene key="home" component={HomeView} />
         </Scene>
       </Router>
     );
